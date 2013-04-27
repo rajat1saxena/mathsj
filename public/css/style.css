@@ -33,7 +33,7 @@
 	font-size: 20px;
 }
 .mainbodyribbon{
-	min-height: 700px;
+	min-height: 900px;
 	background: url('/img/background-100.png');
 	color: #914949;
 }
@@ -128,7 +128,7 @@ div.mathsblock:last-of-type{
     border: 1px solid rgb(190, 187, 187);
     border-radius: 5px;
     padding: 5px;
-    min-height: 200px;
+    min-height: 240px;
 }
 .login_window form input{
 	width: 132px;
@@ -180,4 +180,23 @@ div.mathsblock:last-of-type{
 	font-family: Fjalla One,sans-serif;
 	font-size: 20px;
 	font-weight: normal;
+}
+div.login_window p.error{
+	color: red;
+	text-align: left;
+	font-family: Pontano Sans,sans-serif;
+	font-size: 12px;
+	margin-bottom: 0px;
+}
+.login_window a.logout_button{
+	background: grey;
+	border-radius: 2px;
+	margin-top: 50px;
+	width: 62px;
+	height: 25px;
+	color: white;
+	border: none;
+	box-shadow: 0px 0px 5px black;
+	font-family: Pontano Sans,sans-serif;
+	display: block;
 }

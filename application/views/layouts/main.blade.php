@@ -18,10 +18,10 @@
 					<div class="grid_9">
 						<ul class="navigation">
 							<li><a href="{{ URL::base() }}">Home</a></li>
-							<li><a href="#">Student's corner</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="#">Online help</a></li>
-							<li><a href="#">Contact me</a></li>
+							<li><a href="student">Student's corner</a></li>
+							<li><a href="courses">Courses</a></li>
+							<li><a href="help">Online help</a></li>
+							<li><a href="contact">Contact me</a></li>
 						</ul>
 					</div>
 				</div>
@@ -87,20 +87,39 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 				<div class="grid_3">
 					@section('login_window')
 					<div class="login_window">
-						<p>Student Login</p>
-						{{ Form::open('login','post') }}
-						<div class="form_tuple">
-							{{ Form::label('email_lbl','Email') }}
-							{{ Form::email('email') }}
-						</div>
-						<div class="clear"></div>
-						<div class="form_tuple">
-							{{ Form::label('pass_lbl','Password') }}
-							{{ Form::password('password') }}
-						</div>
-						{{ Form::token() }}
-						{{ Form::submit('Login') }}
-						{{ Form::close() }}
+						@if (Auth::check())
+							<p>You are logged in</p>
+							<a href="login/logout" class="logout_button">Logout</a>
+						@else
+							<p>Student Login</p>
+							<?php
+								if(isset($unable)){
+									echo $unable;
+								}
+							?>
+							{{ Form::open('login','post') }}
+							@if ($errors->has('username'))
+							@foreach ($errors->get('username','<p class="error">Email does not look good!</p>') as $email_error)
+							{{ $email_error }}
+							@endforeach
+							@endif
+							<div class="form_tuple">
+								{{ Form::label('email_lbl','Email') }}
+								{{ Form::email('username') }}
+							</div>
+							<div class="clear"></div>
+							@if ($errors->has('password'))
+							@foreach ($errors->get('password','<p class="error">Password does not look good!</p>') as $password_error)
+							{{ $password_error }}
+							@endforeach
+							@endif
+							<div class="form_tuple">
+								{{ Form::label('pass_lbl','Password') }}
+								{{ Form::password('password') }}
+							</div>
+							{{ Form::submit('Login') }}
+							{{ Form::close() }}
+						@endif
 					</div>
 					@yield_section
 					@section('other_widgets')

@@ -41,11 +41,11 @@ Route::get('/','home@index');
 	return View::make('home.index');
 });
 */
+/*Route::get('student',array('before'=>'auth',function(){
+	return View::make('home@student');
+}));*/
 Route::get('student','home@student');
-/*Route::get('student',function(){
-	return View::make('home.student');
-});
-*/
+
 
 Route::get('courses',function(){
 	return View::make('home.courses');
@@ -58,6 +58,8 @@ Route::get('help',function(){
 Route::get('contact',function(){
 	return View::make('home.contact');
 });
+
+Route::controller('login');
 
 /*
 |--------------------------------------------------------------------------
