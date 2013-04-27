@@ -15,13 +15,15 @@
 					<div class="grid_3">
 						<a href="{{ URL::base() }}" id="logo">mathsjee</a>
 					</div>
-					<ul class="navigation">
-						<li><a href="{{ URL::base() }}">Home</a></li>
-						<li><a href="#">Student's corner</a></li>
-						<li><a href="#">Courses</a></li>
-						<li><a href="#">Online help</a></li>
-						<li><a href="#">Contact me</a></li>
-					</ul>
+					<div class="grid_9">
+						<ul class="navigation">
+							<li><a href="{{ URL::base() }}">Home</a></li>
+							<li><a href="#">Student's corner</a></li>
+							<li><a href="#">Courses</a></li>
+							<li><a href="#">Online help</a></li>
+							<li><a href="#">Contact me</a></li>
+						</ul>
+					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -78,13 +80,48 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 					</div>
 					<div id="contact" class="mathsblock">
 						<h1>Contact Maths-jee Tutorials</h1>
-						<p><span id="phone" class="mathsspan grid_4 alpha">+91-9999900000</span><span id="email" class="mathsspan grid_4">contact@mathsjee.in</span></p>
+						<p><span id="phone" class="mathsspan grid_4 alpha">+91-9999900000</span><span id="email" class="mathsspan grid_4"><a href="mailto:contact@mathsjee.in">contact@mathsjee.in</a></span></p>
 					</div>
 					@yield_section
 				</div>
 				<div class="grid_3">
-					@section('Sidepane')
-					<p>Testing side pane</p>
+					@section('login_window')
+					<div class="login_window">
+						<p>Student Login</p>
+						{{ Form::open('login','post') }}
+						<div class="form_tuple">
+							{{ Form::label('email_lbl','Email') }}
+							{{ Form::email('email') }}
+						</div>
+						<div class="clear"></div>
+						<div class="form_tuple">
+							{{ Form::label('pass_lbl','Password') }}
+							{{ Form::password('password') }}
+						</div>
+						{{ Form::token() }}
+						{{ Form::submit('Login') }}
+						{{ Form::close() }}
+					</div>
+					@yield_section
+					@section('other_widgets')
+					<div class="widget">
+						<h1>Post your ad here</h1>
+						<p>This area can feature your site.So hurry
+							up and contact the owner to advertise your site on
+							mathsjee.in</p>
+					</div>
+					<div class="widget">
+						<h1>Post your ad here</h1>
+						<p>This area can feature your site.So hurry
+							up and contact the owner to advertise your site on
+							mathsjee.in</p>
+					</div>
+					<div class="widget">
+						<h1>Post your ad here</h1>
+						<p>This area can feature your site.So hurry
+							up and contact the owner to advertise your site on
+							mathsjee.in</p>
+					</div>
 					@yield_section
 				</div>
 				<div class="clear"></div>

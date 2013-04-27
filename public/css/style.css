@@ -102,7 +102,11 @@ div.mathsblock:last-of-type{
 #email{
 	background: url('/img/email-logo.png');
 	background-repeat: no-repeat;
-	text-indent: 38px;
+	text-indent: 38px;	
+}
+#email a{
+	text-decoration: none;
+	color: rgb(87, 69, 69);
 }
 .star{
 	float: left;
@@ -118,4 +122,62 @@ div.mathsblock:last-of-type{
 }
 .star p:last-of-type{
 	margin-bottom: 2px;
+}
+.login_window{
+    background: rgb(245, 245, 245);
+    border: 1px solid rgb(190, 187, 187);
+    border-radius: 5px;
+    padding: 5px;
+    min-height: 200px;
+}
+.login_window form input{
+	width: 132px;
+	float: right;
+	border: 1px solid rgb(194, 194, 194);
+	height: 18px;
+	border-radius: 2px;
+}
+.login_window form input:focus{
+	outline: none;
+	box-shadow: 0px 0px 3px rgb(144, 144, 255);
+}
+.login_window form input[type='submit']{
+	background: grey;
+	border-radius: 2px;
+	margin-top: 50px;
+	width: 62px;
+	height: 25px;
+	color: white;
+	border: none;
+	box-shadow: 0px 0px 5px black;
+	font-family: Pontano Sans,sans-serif;
+}
+.login_window form input[type='submit']:hover{
+	box-shadow: 0px 0px 5px rgb(144, 144, 255);
+	color: rgb(230, 245, 183);
+}
+.login_window p{
+	font-family: Fjalla One,sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+.login_window label{
+	font-family: Pontano Sans,sans-serif;
+	font-size: 14px;
+	line-height: 21px;
+}
+.form_tuple:first-of-type{
+	margin-bottom: 20px;
+}
+/* widget class customisations */
+.widget{
+	margin-top: 40px;
+	text-align: justify;
+	font-family: Pontano Sans,sans-serif;
+	font-size: 13px;
+}
+.widget h1{
+	font-family: Fjalla One,sans-serif;
+	font-size: 20px;
+	font-weight: normal;
 }
