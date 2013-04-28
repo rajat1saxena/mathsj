@@ -47,17 +47,13 @@ Route::get('/','home@index');
 Route::get('student','home@student');
 
 
-Route::get('courses',function(){
-	return View::make('home.courses');
-});
+Route::get('courses','home@courses');
 
 Route::get('help',function(){
 	return View::make('home.help');
 });
 
-Route::get('contact',function(){
-	return View::make('home.contact');
-});
+Route::get('contact','home@contact');
 
 Route::controller('login');
 

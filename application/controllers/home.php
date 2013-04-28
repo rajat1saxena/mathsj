@@ -42,4 +42,8 @@ class Home_Controller extends Base_Controller {
 		return View::make('home.student');
 	}
 
+	public function action_contact(){
+		return View::make('home.contact');
+	}
+
 }

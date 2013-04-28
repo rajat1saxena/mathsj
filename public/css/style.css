@@ -11,7 +11,7 @@
 	color: rgb(177, 171, 243);
 }
 #logo{
-	background: url('/img/logo.png');
+	background: url('/img/logo.png') no-repeat 0px center transparent;
 	display: block;
 	background-repeat: no-repeat;
 	background-position-y: 30px;
@@ -199,4 +199,17 @@ div.login_window p.error{
 	box-shadow: 0px 0px 5px black;
 	font-family: Pontano Sans,sans-serif;
 	display: block;
+	text-align: center;
+	line-height: 25px;
+	text-decoration: none;
+	margin: 125px auto 0px auto;
+}
+.login_window a.logout_button:hover{
+	box-shadow: 0px 0px 5px rgb(144, 144, 255);
+	color: rgb(230, 245, 183);
+}
+.logged_in_user{
+	font-family: Pontano Sans,sans-serif;
+	color: blue;
+	font-size: 16px;
 }

@@ -88,31 +88,34 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 					@section('login_window')
 					<div class="login_window">
 						@if (Auth::check())
-							<p>You are logged in</p>
+							<p>You are logged in as</p>
+							<p class="logged_in_user">{{ Auth::user()->email }}</p>
 							<a href="login/logout" class="logout_button">Logout</a>
 						@else
 							<p>Student Login</p>
-							<?php
-								if(isset($unable)){
-									echo $unable;
-								}
-							?>
+							@if (Session::has('unable'))
+							<p class="error">{{ Session::get('unable') }}</p>
+							@endif
 							{{ Form::open('login','post') }}
+							<p class="error">
 							@if ($errors->has('username'))
-							@foreach ($errors->get('username','<p class="error">Email does not look good!</p>') as $email_error)
+							@foreach ($errors->get('username','Email does not look good!') as $email_error)
 							{{ $email_error }}
 							@endforeach
 							@endif
+							</p>
 							<div class="form_tuple">
 								{{ Form::label('email_lbl','Email') }}
 								{{ Form::email('username') }}
 							</div>
 							<div class="clear"></div>
+							<p class="error">
 							@if ($errors->has('password'))
-							@foreach ($errors->get('password','<p class="error">Password does not look good!</p>') as $password_error)
+							@foreach ($errors->get('password','Password does not look good!') as $password_error)
 							{{ $password_error }}
 							@endforeach
 							@endif
+							</p>
 							<div class="form_tuple">
 								{{ Form::label('pass_lbl','Password') }}
 								{{ Form::password('password') }}
