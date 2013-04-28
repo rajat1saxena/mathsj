@@ -32,7 +32,7 @@
 |
 */
 
-//Route::controller('home');
+Route::controller(Controller::detect());
 
 Route::get('/','home@index');
 
@@ -55,7 +55,11 @@ Route::get('help',function(){
 
 Route::get('contact','home@contact');
 
-Route::controller('login');
+Route::get('doubts',array('before'=>'','uses'=>'home@doubts'));
+
+Route::post('doubts',array('before'=>'auth|csrf','uses'=>'home@doubts'));
+
+Route::get('study',array('before'=>'','uses'=>'home@study'));
 
 /*
 |--------------------------------------------------------------------------

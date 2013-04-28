@@ -126,24 +126,14 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 					</div>
 					@yield_section
 					@section('other_widgets')
+	
+					@foreach (Widget::all() as $widgety)
 					<div class="widget">
-						<h1>Post your ad here</h1>
-						<p>This area can feature your site.So hurry
-							up and contact the owner to advertise your site on
-							mathsjee.in</p>
+						<h1>{{ $widgety->title }}</h1>
+						<p>{{ $widgety->html }}</p>
 					</div>
-					<div class="widget">
-						<h1>Post your ad here</h1>
-						<p>This area can feature your site.So hurry
-							up and contact the owner to advertise your site on
-							mathsjee.in</p>
-					</div>
-					<div class="widget">
-						<h1>Post your ad here</h1>
-						<p>This area can feature your site.So hurry
-							up and contact the owner to advertise your site on
-							mathsjee.in</p>
-					</div>
+					@endforeach
+					
 					@yield_section
 				</div>
 				<div class="clear"></div>

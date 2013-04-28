@@ -5,7 +5,8 @@
 	@if (Auth::check())
 		<div class="mathsblock">
 			<h1>Welcome</h1>
-			<p>This is logged in view.</p>
+			<a href="/doubts" class="button">Ask doubt</a>
+			<a href="/study" class="button">Access study material</a>
 		</div>	
 	@else
 		<div class="mathsblock">

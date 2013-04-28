@@ -31,7 +31,7 @@ class Home_Controller extends Base_Controller {
 	*/
 	/*public function __construct(){
 		parent::__construct();
-	}*/
+	}*/ 
 
 	public function action_index()
 	{
@@ -44,6 +44,28 @@ class Home_Controller extends Base_Controller {
 
 	public function action_contact(){
 		return View::make('home.contact');
+	}
+
+	public function action_doubts(){
+		if (Input::get()){
+			$submitted_data = Input::all();
+			$rules = array('doubt'=>'required');
+			$validation = Validator::make($submitted_data,$rules);
+			if($validation->fails()){
+				return Redirect::to('doubts')->with_errors($validation);
+			}
+			$doubt = new Doubt;
+			$doubt->doubt = $submitted_data['doubt'];
+			$doubt->user_id = Auth::user()->id;
+			$doubt->save();
+			return Redirect::to_action('home@doubts')->with('saved',true);		
+		}else{
+			return View::make('home.doubts');
+		}
+	}
+
+	public function action_study(){
+		return View::make('home.study');
 	}
 
 }
