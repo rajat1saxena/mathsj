@@ -61,6 +61,12 @@ Route::post('doubts',array('before'=>'auth|csrf','uses'=>'home@doubts'));
 
 Route::get('study',array('before'=>'','uses'=>'home@study'));
 
+Route::get('doubtscorner','home@doubtscorner');
+
+Route::get('doubts/delete/(:num)','home@doubtdelete');
+
+Route::get('doubts/delete/yes/(:num)','home@doubtdelete_yes');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

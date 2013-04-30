@@ -15,12 +15,12 @@ class Create_Users_Table {
 			$table->text('password');
 		});
 
-		DB::table('users')->insert(
+		/*DB::table('users')->insert(
 			array(
 				'email' => 'admin@gmail.com',
 				'password' => Hash::make('mathsjadmin')
 				)
-			);
+			);*/
 	}
 
 	/**

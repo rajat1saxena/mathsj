@@ -72,7 +72,6 @@ return array(
 		'all' => array(
 			'created_at',
 			'updated_at',
-			'id',
 		),
 	),
 

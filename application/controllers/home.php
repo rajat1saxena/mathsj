@@ -68,4 +68,24 @@ class Home_Controller extends Base_Controller {
 		return View::make('home.study');
 	}
 
+	public function action_doubtscorner(){
+		return View::make('home.doubtscorner');
+	}
+
+	public function action_doubtdelete($doubt_number){
+		return View::make('home.doubtdelete')->with('to_be_del',$doubt_number);
+	}
+
+	public function action_doubtdelete_yes($doubt_number){
+		//check if the user is logged in
+		if(Auth::check()){
+			$doubt = Doubt::find($doubt_number);
+			//check if the owner of the doubt is logged in or not.
+			if($doubt->user_id==Auth::user()->id){
+				$doubt->delete();
+			}
+		}
+		return Redirect::to_action('home@doubtscorner');
+	}
+
 }

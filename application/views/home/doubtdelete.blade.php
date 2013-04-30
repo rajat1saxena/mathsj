@@ -4,9 +4,11 @@
 <div class="fdsf">
 	@if (Auth::check())
 		<div class="mathsblock">
-			<h1>Welcome</h1>
-			<a href="/doubtscorner">Doubts corner</a>
-			<a href="/study" class="button">Access study material</a>
+			<h1>Doubt delete</h1>
+			<p>Are you sure you want to delete the following doubt?</p>
+			<p class="question">{{ Doubt::find($to_be_del)->doubt }}</p>
+			<a class="button" href="/doubts/delete/yes/{{ $to_be_del }}">Yes</a>
+			<a class="button" href="/doubtscorner">No</a>
 		</div>	
 	@else
 		<div class="mathsblock">

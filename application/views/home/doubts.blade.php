@@ -6,7 +6,7 @@
 		<div class="mathsblock">
 			@if (Session::get('saved'))
 				<h1>Doubt sent!</h1>
-				<p>Your doubt has been sent to your teacher successfully.<a href="/doubts">Ask another doubt</a>.</p>
+				<p>Your doubt has been sent to your teacher successfully.<a href="/doubts">Ask another doubt</a>.<a href="/doubtscorner">Go back to Doubts corner</a></p>
 			@else
 				<h1>Post your question</h1>
 				@if ($errors->has('doubt'))
