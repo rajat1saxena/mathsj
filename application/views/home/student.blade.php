@@ -5,6 +5,7 @@
 	@if (Auth::check())
 		<div class="mathsblock">
 			<h1>Welcome</h1>
+			<p>Your course: {{ Course::find(Auth::user()->course_id)->course }}</p>
 			<a href="/doubtscorner">Doubts corner</a>
 			<a href="/study" class="button">Access study material</a>
 		</div>	

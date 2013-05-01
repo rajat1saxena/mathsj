@@ -18,10 +18,10 @@
 					<div class="grid_9">
 						<ul class="navigation">
 							<li><a href="{{ URL::base() }}">Home</a></li>
-							<li><a href="student">Student's corner</a></li>
-							<li><a href="courses">Courses</a></li>
-							<li><a href="help">Online help</a></li>
-							<li><a href="contact">Contact me</a></li>
+							<li><a href="/student">Student's corner</a></li>
+							<li><a href="/courses">Courses</a></li>
+							<li><a href="/help">Online help</a></li>
+							<li><a href="/contact">Contact me</a></li>
 						</ul>
 					</div>
 				</div>
@@ -34,20 +34,20 @@
 					@section('Mainpane')
 					{{ HTML::image('img/banner-mainpage.png','Image') }}
 					<div id="intro" class="mathsblock">
-						<h1>About Maths-jee Tutorials</h1>
-						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+						<h1>
+							About Maths-jee Tutorials
+						</h1>
+						<p>
+							{{ DB::table('basicinfo')->first()->fullinfo }}
+						</p>
 					</div>
 					<div id="courses" class="mathsblock">
 						<h1>Courses Offered</h1>
 						<p>
 							<ul id="courses_list">
-								<li>1 year IIT-JEE maths preparation</li>
-								<li>2 years IIT-JEE maths preparation</li>
-								<li>1 year AIEEE maths preparation</li>
-								<li>2 years AIEEE maths preparation</li>
-								<li>10th/12th Board exams maths preparation</li>
+								@foreach (Course::all() as $course)
+								<li>{{ $course->course }}</li>
+								@endforeach
 							</ul>
 							<div class="clear"></div>
 						</p>
@@ -80,7 +80,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 					</div>
 					<div id="contact" class="mathsblock">
 						<h1>Contact Maths-jee Tutorials</h1>
-						<p><span id="phone" class="mathsspan grid_4 alpha">+91-9999900000</span><span id="email" class="mathsspan grid_4"><a href="mailto:contact@mathsjee.in">contact@mathsjee.in</a></span></p>
+						<p><span id="phone" class="mathsspan grid_4 alpha">{{ DB::table('basicinfo')->first()->phone }}</span><span id="email" class="mathsspan grid_4"><a href="mailto:{{ DB::table('basicinfo')->first()->email }}">{{ DB::table('basicinfo')->first()->email }}</a></span></p>
 					</div>
 					@yield_section
 				</div>
@@ -90,7 +90,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 						@if (Auth::check())
 							<p>You are logged in as</p>
 							<p class="logged_in_user">{{ Auth::user()->email }}</p>
-							<a href="login/logout" class="logout_button">Logout</a>
+							<a href="/login/logout" class="logout_button">Logout</a>
 						@else
 							<p>Student Login</p>
 							@if (Session::has('unable'))

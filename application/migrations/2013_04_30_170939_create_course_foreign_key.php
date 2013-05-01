@@ -23,6 +23,7 @@ class Create_Course_Foreign_Key {
 	public function down()
 	{
 		Schema::table('users',function($table){
+			$table->drop_foreign('users_course_id_foreign');
 			$table->drop_column('course_id');
 		});
 	}

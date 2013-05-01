@@ -88,4 +88,8 @@ class Home_Controller extends Base_Controller {
 		return Redirect::to_action('home@doubtscorner');
 	}
 
+	public function action_papers($paperno){
+		return View::make('home.showpaper')->with('render_paper',$paperno);
+	}
+
 }

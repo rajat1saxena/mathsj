@@ -59,13 +59,15 @@ Route::get('doubts',array('before'=>'','uses'=>'home@doubts'));
 
 Route::post('doubts',array('before'=>'auth|csrf','uses'=>'home@doubts'));
 
-Route::get('study',array('before'=>'','uses'=>'home@study'));
+Route::get('study',array('before'=>'auth','uses'=>'home@study'));
 
 Route::get('doubtscorner','home@doubtscorner');
 
 Route::get('doubts/delete/(:num)','home@doubtdelete');
 
 Route::get('doubts/delete/yes/(:num)','home@doubtdelete_yes');
+
+Route::get('study/papers/(:num)',array('before'=>'auth','uses'=>'home@papers'));
 
 /*
 |--------------------------------------------------------------------------

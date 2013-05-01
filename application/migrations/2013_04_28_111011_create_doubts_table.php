@@ -14,7 +14,7 @@ class Create_Doubts_Table {
 			$table->text('doubt');
 			$table->text('answer')->nullable();
 			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users')->on_delete('cascade');
 		});
 	}
 

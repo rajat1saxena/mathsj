@@ -25,6 +25,7 @@ class Insert_Data_Users {
 	 */
 	public function down()
 	{
+		DB::table('doubts')->delete();
 		DB::table('users')->delete();
 	}
 

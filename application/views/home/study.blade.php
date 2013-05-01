@@ -4,8 +4,10 @@
 <div class="fdsf">
 	@if (Auth::check())
 		<div class="mathsblock">
-			<h1>Welcome</h1>
-			<p>This is study material's page.</p>
+			<h1>Study material for: {{ Course::find(Auth::user()->course_id)->course }}</h1>
+			@foreach (Course::find(Auth::user()->course_id)->papers()->get() as $each)
+			<p><a href="/study/papers/{{ $each->id }}">{{ $each->title }}</a></p>
+			@endforeach
 		</div>	
 	@else
 		<div class="mathsblock">
